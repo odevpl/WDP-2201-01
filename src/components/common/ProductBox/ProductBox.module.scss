@@ -5,15 +5,26 @@
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
 
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
+    height: 250px;
+    margin: 0 auto;
+    padding: 0;
     background: {
       color: #f4f5f7;
       size: contain;
       position: center;
       repeat: no-repeat;
     }
+    width: auto;
+    max-width: 260px;
     overflow: hidden;
     align-items: flex-end;
 
@@ -31,12 +42,19 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      width: 100%;
+      padding: 1px 5px;
     }
   }
 
   .content {
     text-align: center;
     padding: 20px;
+    z-index: 1;
 
     h5 {
       color: $primary;
