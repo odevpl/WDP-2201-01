@@ -3,16 +3,30 @@
 // .root {
 // }
 
+@mixin outline($color, $border-color) {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid $border-color;
+  color: $color;
+  font-size: 13px;
+  line-height: 22px;
+
+  &:not(.noHover):hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+}
+
 .main {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: $button-bg-dark;
+  color: $text-color-light;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
 
   &:not(.noHover):hover {
-    color: #ffffff !important;
+    color: $text-color-light !important;
     background-color: $primary;
     text-decoration: none;
   }
@@ -27,15 +41,10 @@
 }
 
 .outline {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
-  font-size: 13px;
-  line-height: 22px;
+  @include outline($text-color, $button-border-color)
+}
 
-  &:not(.noHover):hover {
-    background-color: #2a2a2a;
-    color: #ffffff;
-  }
+.outline-active {
+  @include outline($text-color-light, $button-border-color);
+  background-color: $primary;
 }
