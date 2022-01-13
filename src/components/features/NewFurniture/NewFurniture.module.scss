@@ -57,7 +57,9 @@
                 bottom: -4px;
                 left: 0;
                 width: 100%;
-                border-bottom: 4px solid $primary;
+                border-bottom-width: 4px;
+                border-bottom-style: solid;
+                border-bottom-color: $primary;
               }
             }
           }
