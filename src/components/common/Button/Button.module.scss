@@ -1,8 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// .root {
-// }
-
 @mixin outline($color, $border-color) {
   display: inline-block;
   padding: 5px 10px;
@@ -18,15 +15,15 @@
 }
 
 .main {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: $button-bg-dark;
+  color: $text-color-light;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
 
   &:not(.noHover):hover {
-    color: #ffffff !important;
+    color: $text-color-light !important;
     background-color: $primary;
     text-decoration: none;
   }
@@ -41,10 +38,10 @@
 }
 
 .outline {
-  @include outline(#2a2a2a, #2a2a2a)
+  @include outline($text-color, $button-border-color)
 }
 
 .outline-active {
-  @include outline(#ffffff, #2a2a2a);
+  @include outline($text-color-light, $button-border-color);
   background-color: $primary;
 }
