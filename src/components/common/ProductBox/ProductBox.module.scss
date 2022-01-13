@@ -99,4 +99,18 @@
       display: flex;
     }
   }
+
+  .basePrice {
+    color: #a5a5a5;
+    font-weight: normal;
+    font-size: 15px;
+    text-decoration: line-through #292929;
+    padding-right: 5px;
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
