@@ -8,7 +8,7 @@ export const getNew = ({ products }) =>
 /* action name creator */
 const reducerName = 'products';
 const createActionName = name => `app/${reducerName}/${name}`;
-/* app/products/ASSIGN_FAVOURITE */
+
 /* action types */
 const ASSIGN_FAVOURITE = createActionName('ASSIGN_FAVOURITE');
 
