@@ -36,6 +36,22 @@ $form-border-color: $color-grey-160;
 $button-bg-dark: $color-grey-165;
 $button-border-color: $color-grey-165;
 
+
+$form-border-color: #292929;
+
+*{
+  transition: background-color 250ms, color 250ms, border-color 250ms, width 250ms;
+} 
+
+a:hover{
+    transition: 250ms;
+}
+
+a:before{
+    content: "";
+    transition: border-bottom-width 250ms;
+}
+
 $feature-border-color: $color-grey-710;
 $feature-icon-bg: $color-light;
 $feature-icon-active-color: $color-light;
