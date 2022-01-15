@@ -112,6 +112,7 @@ NewFurniture.propTypes = {
   ),
   assignFavourite: PropTypes.func,
   assignCompare: PropTypes.func,
+
 };
 
 NewFurniture.defaultProps = {

@@ -61,7 +61,7 @@ const ProductBox = ({
             </a>
           ))}
         </div>
-      </div>
+      </div>r
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>

@@ -9,6 +9,7 @@ import {
   assignCompare,
 } from '../../../redux/productsRedux.js';
 
+
 const mapStateToProps = state => ({
   categories: getAll(state),
   products: getNew(state),
