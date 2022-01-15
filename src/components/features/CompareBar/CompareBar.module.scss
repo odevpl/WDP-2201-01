@@ -1,0 +1,27 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: $compareBar-bg;
+  border: 1px solid $compareBar-border-color;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: nowrap;
+  width: auto;
+  z-index: 2;
+}
+
+.button {
+  display: flex;
+  height: auto;
+  padding-right: $base-padding/2;
+  align-items: center;
+}
+
+.images {
+  display: flex;
+  flex-wrap: nowrap;
+  width: auto;
+}
