@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import CompareBar from '../CompareBar/CompareBarContainer';
 
 class NewFurniture extends React.Component {
   state = {
@@ -19,11 +20,15 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products, assignFavourite } = this.props;
+    const { categories, products, assignFavourite, assignCompare } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const actions = { assignFavourite, assignCompare };
+
+    const getCompareProductAmount = () =>
+      products.filter(product => product.compare).length;
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -69,9 +74,16 @@ class NewFurniture extends React.Component {
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
               <div key={item.id} className='col-3'>
-                <ProductBox {...item} assignFavourite={assignFavourite} />
+                <ProductBox
+                  {...item}
+                  actions={actions}
+                  compareAmount={getCompareProductAmount()}
+                />
               </div>
             ))}
+          </div>
+          <div className='row'>
+            <CompareBar />
           </div>
         </div>
       </div>
@@ -99,6 +111,8 @@ NewFurniture.propTypes = {
     })
   ),
   assignFavourite: PropTypes.func,
+  assignCompare: PropTypes.func,
+
 };
 
 NewFurniture.defaultProps = {

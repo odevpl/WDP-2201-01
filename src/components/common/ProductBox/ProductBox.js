@@ -21,11 +21,19 @@ const ProductBox = ({
   favourite,
   compare,
   basePrice,
-  assignFavourite,
+  actions,
+  compareAmount,
 }) => {
   const changeFavouriteState = event => {
     event.preventDefault();
-    assignFavourite({ id: id, favourite: !favourite });
+    actions.assignFavourite({ id: id, favourite: !favourite });
+  };
+
+  const changeCompareState = event => {
+    event.preventDefault();
+    if (compareAmount < 4 || compare) {
+      actions.assignCompare({ id: id, compare: !compare });
+    }
   };
 
   return (
@@ -53,7 +61,7 @@ const ProductBox = ({
             </a>
           ))}
         </div>
-      </div>
+      </div>r
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
@@ -64,7 +72,11 @@ const ProductBox = ({
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant={compare ? 'outline-active' : 'outline'}>
+          <Button
+            type='button'
+            onClick={changeCompareState}
+            variant={compare ? 'outline-active' : 'outline'}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -90,7 +102,8 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   compare: PropTypes.bool,
   favourite: PropTypes.bool,
-  assignFavourite: PropTypes.func,
+  actions: PropTypes.object,
+  compareAmount: PropTypes.number,
 };
 
 export default ProductBox;
