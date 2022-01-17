@@ -309,6 +309,20 @@ const initialState = {
   cart: {
     products: [],
   },
+  promotion: [
+    {
+      id: 'promotion-vertical',
+      image: 'src=../../images/promotion/fotel.jpg',
+    },
+    {
+      id: 'promotion-horizontal-1',
+      image: 'src=../../images/promotion/sofa.jpg',
+    },
+    {
+      id: 'promotion-horizontal-2',
+      image: 'src=../../images/promotion/kredens.jpg',
+    },
+  ],
 };
 
 export default initialState;
