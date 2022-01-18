@@ -41,7 +41,7 @@ $form-border-color: #292929;
 
 *{
   transition: background-color 250ms, color 250ms, border-color 250ms, width 250ms;
-} 
+}
 
 a:hover{
     transition: 250ms;
@@ -81,6 +81,8 @@ $compareBar-bg: $color-light;
 $compareBar-border-color: $color-grey-880;
 $compareBar-photoHover-bg: $color-grey-210;
 $compareBar-icon-color: $color-light;
+
+$stars-hover-color: $color-orange;
 
 //Other settings
 $base-padding: 24px;
