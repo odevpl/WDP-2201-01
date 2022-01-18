@@ -1,0 +1,36 @@
+@import "../../../styles/settings.scss";
+
+.root {
+    background-color: $product-bg;
+    border-top: 1px solid $product-border-color;
+    border-bottom: 1px solid $product-border-color;
+    margin-bottom: 2rem;
+    padding: 10px 0 10px 0;
+   
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .logoContainer {
+        border: 1px solid $product-border-color;
+    }
+
+    .button {
+        background-color: $color-grey-165;
+        height: 100%;
+        width: 2%;
+        min-width: 20px;
+    }
+
+    .brandsImagesContainer {
+        width: 96%;
+    }
+   
+    p {
+        color: $color-light;
+        text-align: center;
+        transform: translate(0, 40%);        
+    }
+}
