@@ -1,0 +1,89 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin-bottom: 30px;
+
+  .panelBar {
+    margin-bottom: 30px;
+    position: relative;
+
+    .heading {
+      position: relative;
+      border-bottom: 4px solid $newFurNav-line-color;
+
+      h3 {
+        color: $primary;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 38px;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 45px;
+        border-bottom: 4px solid $primary;
+      }
+    }
+  }
+
+  .navLink {
+    text-transform: uppercase;
+
+    .activeLink {
+      color: red;
+    }
+  }
+
+  .tabImage {
+    position: relative;
+
+    .buttons {
+      display: none;
+
+      .button {
+        margin-bottom: 0.5rem;
+        margin-left: 0.5rem;
+
+        &:hover {
+          color: $button-hover-color;
+          background-color:transparent;
+          border-color: $button-border-hover-color;
+        }
+      }
+    }
+
+    &:hover  {
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+      }
+    }
+  }
+
+  .mainImage {
+    position: relative;
+
+    .items {
+      position: absolute;
+
+      .price {
+        span {
+          color: $gallery-mainImagePrice-color;
+        }
+      }
+      .title {
+        color: $gallery-mainImageTitle-color;
+      }
+    }
+
+  }
+}

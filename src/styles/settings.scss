@@ -15,6 +15,7 @@ $color-grey-160: #292929;
 
 $color-brown: rgb(42, 42, 42);
 $color-black: rgba(1, 2, 2, 0.2);
+$color-green: #79ae30;
 
 $color-orange: #d58e32;
 
@@ -40,6 +41,11 @@ $button-border-color: $color-grey-165;
 
 $overlay-light-opacity: $overlay-color;
 
+$button-bigGreen-bg: $color-green;
+$button-bigGreen-color: $color-light;
+
+$button-hover-color: $color-orange;
+$button-border-hover-color: $color-orange;
 
 $form-border-color: #292929;
 
@@ -89,6 +95,10 @@ $compareBar-icon-color: $color-light;
 $stars-hover-color: $color-orange;
 
 $counterDots-color: $color-black;
+
+$gallery-mainImageTitle-color: $color-orange;
+$gallery-mainImagePrice-color: $color-green;
+$gallery-mainImageButton-color: $color-green;
 
 //Other settings
 $base-padding: 24px;
