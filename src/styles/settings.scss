@@ -18,6 +18,8 @@ $color-black: rgba(1, 2, 2, 0.2);
 
 $color-orange: #d58e32;
 
+$overlay-color: rgba(42,42,42,0.6);
+
 // Colors variables - please use them in the project
 $header-topbar-bg: $color-grey-260;
 $header-bg: $color-grey-210;
@@ -35,6 +37,8 @@ $form-border-color: $color-grey-160;
 
 $button-bg-dark: $color-grey-165;
 $button-border-color: $color-grey-165;
+
+$overlay-light-opacity: $overlay-color;
 
 
 $form-border-color: #292929;
