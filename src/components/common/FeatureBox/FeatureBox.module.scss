@@ -63,7 +63,8 @@
     }
   }
 
-  &.active {
+  &.active,
+  &:hover {
     .iconWrapper {
       color: $feature-icon-active-color;
 
