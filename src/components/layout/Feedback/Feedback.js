@@ -52,7 +52,7 @@ class Feedback extends React.Component {
                     <img
                       className={styles.clientPhoto}
                       src={feed.clientPhoto}
-                      alt='smallphoto'
+                      alt='Avatar of client who posted feedback'
                     />
                   </div>
                   <div className={'col col-lg-2 ' + styles.desc}>

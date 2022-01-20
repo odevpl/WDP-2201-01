@@ -312,7 +312,7 @@ const initialState = {
       id: 'rev-01',
       clientName: 'Patrick The Irish',
       clientReview:
-        'Pellentesque eget elit nibh. Ut sit amet sollicitudin velit. Aenean id dui vitae sapien venenatis elementum. Aliquam et neque fringilla, lacinia nisl non, congue sem. Phasellus rhoncus elementum ante ut lobortis. Donec eu nisl tristique, consequat quam in, sollicitudin nisl. Sed rhoncus pretium ex. Morbi vel suscipit sem, sit amet lacinia leo.',
+        'Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
       clientPhoto: 'https://i.postimg.cc/G2p6t3tn/patrick-the-irish.jpg',
     },
     {
