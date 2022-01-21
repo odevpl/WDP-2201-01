@@ -48,7 +48,7 @@ const ProductBox = ({
         <h5>{name}</h5>
         <Stars productId={id} />
       </div>
-      r<div className={styles.line}></div>
+      <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
           <Button
