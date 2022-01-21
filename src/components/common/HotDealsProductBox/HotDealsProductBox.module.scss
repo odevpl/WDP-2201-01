@@ -1,0 +1,175 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: $product-bg;
+  border: 1px solid $product-border-color;
+  margin-bottom: 2rem;
+  
+  .leftContainer{
+    height: 500px;
+  }
+  
+  .leftContainerHeader{
+    display:flex;
+    background-color: $text-color;
+    justify-content: space-between;
+  }
+  
+  .dotsContainer{
+    background-color: $text-color;
+    height: 8%;
+    display: flex;
+    padding-left: 5%;
+    
+  }
+  
+  .dots {
+    
+    ul {
+      margin: 0;
+      padding: 0 1rem 0 0;
+      list-style: none;
+     
+      li {
+        display: inline-block;
+        margin-left: 0.5rem;
+
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 6px;
+          background-color: $newFurNav-dots-color;
+          font-size: 0;
+
+          &.active,
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo {
+    position: relative;
+    width: 100%;
+    
+    
+    margin: 0 auto;
+    background: {
+      color: $product-photo-bg;
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+    width: auto;
+    max-width: 260px;
+    overflow: hidden;
+    align-items: flex-end;
+
+    .buttons {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      bottom: 40%;
+      left: 0;
+      height: 40px;
+      width: 100%;
+      padding: 1px 5px;
+    }
+  }
+
+  .counterContainer{
+    display:flex;
+    justify-content: space-evenly;
+  }
+  .counterDot{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    justify-content: center;
+    padding: 2px;
+    margin: 1px;
+    background-color: $button-bg-dark;
+    opacity: 0.9;
+  }
+  
+  p{
+    color: $text-color-light;
+    font-weight: bold;
+    margin: 0; 
+    font-size: 100%;     
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+    z-index: 1;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: $product-star-color;
+      }
+    }
+  }
+
+  .line {
+    margin: 0 10px;
+    border-bottom: 1px solid $product-line-color;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 30px;
+      border-bottom: 4px solid $primary;
+      transform: translateX(-50%);
+    }
+  }
+
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &:hover {
+    .buttons {
+      display: flex;
+    }
+  }
+
+  .basePrice {
+    color: #a5a5a5;
+    font-weight: normal;
+    font-size: 15px;
+    text-decoration: line-through #292929;
+    padding-right: 5px;
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}

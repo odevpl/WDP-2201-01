@@ -27,7 +27,7 @@
         position: relative;
     }
 
-    p {
+    .buttonText, p {
         color: $color-light;
         text-align: center;
         text-transform: uppercase;
@@ -76,6 +76,10 @@
         height: 100%;
         width: 50%;
         min-width: 20px;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
         
         &:hover {
         background-color: $primary;

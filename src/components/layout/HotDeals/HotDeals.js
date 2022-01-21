@@ -2,13 +2,17 @@ import React from 'react';
 import styles from './HotDeals.module.scss';
 import initialState from '../../../redux/initialState';
 
+import HotDealsProductBox from '../../common/HotDealsProductBox/HotDealsProductBox';
+
 const HotDeals = () => (
   <div className='container'>
     <div className={styles.root}>
       <div className={`'row align-items-center' ${styles.sectionsContainer}`}>
         <div className={`col-4`}>
           <div className={`${styles.photo} `}>
-            <img src={initialState.hotDeals.pictureLeft} alt='white armchair' />
+            <HotDealsProductBox id={initialState.hotDeals.products[0]} />
+            {/* <HotDealsProductBox />
+            <HotDealsProductBox /> */}
           </div>
         </div>
         <div className={`col-8`}>
@@ -31,10 +35,10 @@ const HotDeals = () => (
           </div>
           <div className={styles.buttonsContainer}>
             <div className={styles.button}>
-              <p>&#60;</p>
+              <div className={styles.buttonText}>&#60;</div>
             </div>
             <div className={styles.button}>
-              <p>&#62;</p>
+              <div className={styles.buttonText}>&#62;</div>
             </div>
           </div>
         </div>
