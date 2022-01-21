@@ -97,6 +97,9 @@ class Gallery extends React.Component {
                           key={button.id}
                           type='button'
                           variant={'outline'}
+                          data-bs-toggle='tooltip'
+                          data-bs-placement='right'
+                          title={button.title}
                         >
                           <FontAwesomeIcon icon={button.icon}>
                             {button.title}
