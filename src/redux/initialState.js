@@ -323,6 +323,12 @@ const initialState = {
       image: 'src=../../images/promotion/kredens.jpg',
     },
   ],
+  logo: [
+    {
+      id: 'logo1',
+      image: 'src=../../images/logo/logo1.jpg',
+    },
+  ],
 };
 
 export default initialState;
