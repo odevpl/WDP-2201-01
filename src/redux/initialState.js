@@ -371,10 +371,23 @@ const initialState = {
       image: 'src=../../images/promotion/kredens.jpg',
     },
   ],
+
+  hotDeals: {
+    textFirstWord: 'Indoor',
+    textSecondWord: ' furniture',
+    textSecondline: 'save up to 50% of all furniture',
+    pictureLeft: 'src=../../images/hotDeals/armchair.jpg',
+    pictureRight: 'src=../../images/hotDeals/living.jpg',
+    products: [
+      'aenean-ru-bristique-2',
+      'aenean-ru-bristique-3',
+      'aenean-ru-bristique-4',
+    ],
+  },
+
   logo: [
     {
       id: 'logo1',
-      image: 'src=../../images/logo/logo1.jpg',
     },
   ],
 };
