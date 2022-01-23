@@ -330,6 +330,30 @@ const initialState = {
       favourite: false,
     },
   ],
+
+  reviews: [
+    {
+      id: 'rev-01',
+      clientName: 'Patrick The Irish',
+      clientReview:
+        'Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
+      clientPhoto: 'https://i.postimg.cc/G2p6t3tn/patrick-the-irish.jpg',
+    },
+    {
+      id: 'rev-02',
+      clientName: 'Merry Christmas',
+      clientReview:
+        'Nullam euismod aliquet sapien commodo dignissim. Nullam non magna ligula. Aliquam in eros lacinia, vulputate nibh vitae, malesuada erat. Phasellus id lorem sapien. Vestibulum placerat dolor tincidunt libero venenatis, pretium sollicitudin lorem blandit. Vestibulum blandit lorem mauris. Quisque id sem malesuada, tempor nunc non, vehicula risus.',
+      clientPhoto: 'https://i.postimg.cc/L6CQvRJX/merry-christmas.jpg',
+    },
+    {
+      id: 'rev-03',
+      clientName: 'Happy Easter',
+      clientReview:
+        'Aliquam eget dui blandit, varius velit eget, sagittis sem. Praesent id dui massa. Fusce pharetra tincidunt eros, vitae pharetra neque. Suspendisse posuere faucibus mauris, vitae consequat tortor fringilla elementum. Maecenas dignissim augue nisi, et posuere lacus facilisis vel. Donec vestibulum elementum mi, id euismod nisl vulputate ac.',
+      clientPhoto: 'https://i.postimg.cc/PxfvJGdG/happy-easter.jpg',
+    },
+  ],
   cart: {
     products: [],
   },
