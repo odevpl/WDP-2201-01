@@ -151,7 +151,7 @@
           }
         }
         ul::before {
-          width: 90px;
+          width: 100px;
           height: 100%;
           display: block;
           position: absolute;
@@ -159,6 +159,9 @@
           content: ' ';
           background-color: $product-bg;
           box-shadow: 2px 3.464px 6px rgba(1, 2, 2, 0.2);
+          left:50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
       .search {
