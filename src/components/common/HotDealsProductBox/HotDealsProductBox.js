@@ -32,19 +32,19 @@ const HotDealsProductBox = ({ id, actions, compareAmount }) => {
     <div className={styles.root}>
       <div className={styles.leftContainer}>
         <div className={styles.leftContainerHeader}>
-          <div className={styles.dotsContainer}>
+          <div className={styles.title}>
             <p>HOT DEALS</p>
           </div>
           <div className={styles.dots}>
             <ul>
               <li>
-                <a className={styles.dot}></a>
+                <a href='#' className={styles.dot}></a>
               </li>
               <li>
-                <a className={styles.dot}></a>
+                <a href='#' className={styles.dot}></a>
               </li>
               <li>
-                <a className={styles.dot}></a>
+                <a href='#' className={styles.dot}></a>
               </li>
             </ul>
           </div>
@@ -59,16 +59,20 @@ const HotDealsProductBox = ({ id, actions, compareAmount }) => {
         </div>
         <div className={styles.counterContainer}>
           <div className={styles.counterDot}>
-            <p>25 DAYS</p>
+            <p className={styles.counterNo}>25</p>
+            <p className={styles.descriptiopn}>days</p>
           </div>
           <div className={styles.counterDot}>
-            <p>10 HOURS</p>
+            <p className={styles.counterNo}>10</p>
+            <p className={styles.descriptiopn}>hours</p>
           </div>
           <div className={styles.counterDot}>
-            <p>45 MINS</p>
+            <p className={styles.counterNo}>45</p>
+            <p className={styles.descriptiopn}>mins</p>
           </div>
           <div className={styles.counterDot}>
-            <p>30 SECS</p>
+            <p className={styles.counterNo}>30</p>
+            <p className={styles.descriptiopn}>secs</p>
           </div>
         </div>
         <div className={styles.content}>
