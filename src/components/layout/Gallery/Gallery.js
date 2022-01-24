@@ -4,6 +4,7 @@ import currencyFormatter from '../../../utils/currencyFormatter';
 
 import styles from './Gallery.module.scss';
 import Button from '../../common/Button/Button';
+import Slider from '../../features/Slider/Slider';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -36,6 +37,8 @@ class Gallery extends React.Component {
   render() {
     const { products } = this.props;
     const { activeTab, activeTabImage } = this.state;
+
+    const productsImagesURLs = products.map(product => product.image);
 
     const tabButtons = [
       {
@@ -121,6 +124,7 @@ class Gallery extends React.Component {
                   alt={activeTab.replace('_', ' ') + ' furniture'}
                 />
               </div>
+              <Slider imagesURLs={productsImagesURLs} />
             </div>
             <div className={'col-6 ' + styles.rightPanel}>
               <div className={styles.items}>

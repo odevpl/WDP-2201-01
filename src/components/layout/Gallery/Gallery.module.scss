@@ -106,7 +106,7 @@
           position: absolute;
           width: 8px;
           height: 8px;
-          transform: translate(56px, -30px) rotate(45deg);
+          transform: translate(56px, -28px) rotate(45deg);
           background-color: $gallery-tooltip-bg;
           z-index: 1;
         }
@@ -114,7 +114,7 @@
         .tooltip {
           display: none;
           position: absolute;
-          transform: translate(60px, -38px);
+          transform: translate(60px, -37px);
           width: max-content;
           height: 26px;
           background-color: $gallery-tooltip-bg;

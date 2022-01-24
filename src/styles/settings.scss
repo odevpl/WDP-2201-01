@@ -3,9 +3,10 @@ $color-light: #fff;
 
 $color-grey-960: #f4f5f7;
 $color-grey-900: rgb(224, 227, 237);
-$color-grey-880: #e1e1e1;
 $color-grey-890: #e2e2e2;
+$color-grey-880: #e1e1e1;
 $color-grey-850: rgb(216, 216, 216);
+$color-grey-800: #cccccc;
 $color-grey-710: #b5b5b5;
 $color-grey-660: rgb(169, 169, 169);
 $color-grey-260: #434343;
@@ -93,6 +94,10 @@ $gallery-mainImageButton-color: $color-green;
 $gallery-tooltip-bg: $color-grey-165;
 $gallery-tooltipText-color: $color-light;
 
+$slider-border-color: $color-grey-890;
+$slider-button-bg: $color-grey-165;
+$slider-arrow-color: $color-light;
+$slider-thumbnail-bg: $color-grey-800;
 //Other settings
 
 *{
