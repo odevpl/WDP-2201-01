@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import currencyFormatter from '../../../utils/currencyFormatter';
 
 import styles from './Gallery.module.scss';
 import Button from '../../common/Button/Button';
@@ -55,14 +56,15 @@ class Gallery extends React.Component {
       {
         id: 'watch',
         icon: faEye,
-        title: 'Add to Watched List',
+        title: 'Add to Watched',
       },
     ];
 
     const mainImageId = 'aenean-ru-bristique-16';
-    const mainImageSource = products.find(product => (product.id = mainImageId)).image;
-    const mainImageAlt = products.find(product => (product.id = mainImageId)).name;
-    const mainPrice = products.find(product => (product.id = mainImageId)).price;
+    const selectedProduct = products.find(product => (product.id = mainImageId));
+    const mainImageSource = selectedProduct.image;
+    const mainImageAlt = selectedProduct.name;
+    const mainPrice = currencyFormatter.format(selectedProduct.price);
 
     return (
       <div className={styles.root}>
@@ -74,12 +76,18 @@ class Gallery extends React.Component {
                   <h3>Furniture Gallery</h3>
                 </div>
               </div>
-              <div className>
-                <ul className='nav nav-tabs'>
+              <div className={styles.navTabs}>
+                <ul>
                   {['feature', 'top_seller', 'sale_off', 'top_rated'].map(element => (
-                    <li key={element} className={styles.navLink}>
+                    <li
+                      key={element}
+                      className={
+                        activeTab === element
+                          ? `${styles.navLink} ${styles.activeLink}`
+                          : `${styles.navLink}`
+                      }
+                    >
                       <a
-                        className={activeTab === element && styles.activeLink}
                         onClick={event => this.handleTabChange(event, element)}
                         href='#'
                       >
@@ -88,43 +96,46 @@ class Gallery extends React.Component {
                     </li>
                   ))}
                 </ul>
-                <div className='tab-content'>
-                  <div className={styles.tabImage}>
-                    <div className={styles.buttons}>
-                      {tabButtons.map(button => (
-                        <Button
-                          className={styles.button}
-                          key={button.id}
-                          type='button'
-                          variant={'outline'}
-                          data-bs-toggle='tooltip'
-                          data-bs-placement='right'
-                          title={button.title}
-                        >
-                          <FontAwesomeIcon icon={button.icon}>
-                            {button.title}
-                          </FontAwesomeIcon>
-                        </Button>
-                      ))}
+              </div>
+              <div className={styles.tabContent}>
+                <div className={styles.buttons}>
+                  {tabButtons.map(button => (
+                    <div key={button.id} className={styles.buttonContainer}>
+                      <Button
+                        className={styles.button}
+                        type='button'
+                        variant={'outline'}
+                      >
+                        <FontAwesomeIcon icon={button.icon}></FontAwesomeIcon>
+                      </Button>
+                      <div className={styles.tooltip}>
+                        <span>{button.title}</span>
+                      </div>
+                      <div className={styles.arrow}></div>
                     </div>
-                    <img
-                      className={'img-fluid'}
-                      src={activeTabImage[activeTab]}
-                      alt={activeTab.replace('_', ' ') + ' furniture'}
-                    />
-                  </div>
+                  ))}
                 </div>
+                <img
+                  className={styles.tabImage}
+                  src={activeTabImage[activeTab]}
+                  alt={activeTab.replace('_', ' ') + ' furniture'}
+                />
               </div>
             </div>
-            <div className={'col-6 ' + styles.mainImage}>
+            <div className={'col-6 ' + styles.rightPanel}>
               <div className={styles.items}>
-                <p className={styles.from}>
+                <p className={styles.text}>
                   FROM
                   <span className={styles.price}>{mainPrice}</span>
                 </p>
                 <p className={styles.title}>Bedroom Bed</p>
+                <Button variant='bigGreen'>Shop now</Button>
               </div>
-              <img className={'img-fluid'} src={mainImageSource} alt={mainImageAlt} />
+              <img
+                className={styles.mainImage}
+                src={mainImageSource}
+                alt={mainImageAlt}
+              />
             </div>
           </div>
         </div>

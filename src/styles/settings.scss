@@ -47,20 +47,7 @@ $button-bigGreen-color: $color-light;
 $button-hover-color: $color-orange;
 $button-border-hover-color: $color-orange;
 
-$form-border-color: #292929;
-
-*{
-  transition: background-color 250ms, color 250ms, border-color 250ms, width 250ms;
-}
-
-a:hover{
-    transition: 250ms;
-}
-
-a:before{
-    content: "";
-    transition: border-bottom-width 250ms;
-}
+$form-border-color: $color-grey-160;
 
 $feature-border-color: $color-grey-710;
 $feature-icon-bg: $color-light;
@@ -96,11 +83,31 @@ $stars-hover-color: $color-orange;
 
 $counterDots-color: $color-black;
 
+$gallery-border-color: $color-grey-890;
+$gallery-active-color: $color-orange;
+$gallery-text-color: $color-grey-165;
+$gallery-active-bg: $color-grey-960;
 $gallery-mainImageTitle-color: $color-orange;
 $gallery-mainImagePrice-color: $color-green;
 $gallery-mainImageButton-color: $color-green;
+$gallery-tooltip-bg: $color-grey-165;
+$gallery-tooltipText-color: $color-light;
 
 //Other settings
+
+*{
+  transition: background-color 250ms, color 250ms, border-color 250ms, width 250ms;
+}
+
+a:hover{
+    transition: 250ms;
+}
+
+a:before{
+    content: "";
+    transition: border-bottom-width 250ms;
+}
+
 $base-padding: 24px;
 
 // Feedback component variables
