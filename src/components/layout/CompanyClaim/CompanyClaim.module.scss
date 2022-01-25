@@ -7,6 +7,10 @@
     height: 145px;
   }
 
+  .elements :first-child {
+    @media (max-width: 575.98px) { order: 3; }
+  }
+
   .phoneNumber {
     p {
       margin: 0;
@@ -14,6 +18,10 @@
       line-height: 42px;
       color: $phoneNo-color;
       font-weight: 500;
+
+      @media (max-width: 575.98px) {
+        font-size: 14px;
+      }
 
       .icon {
         font-size: 32px;
@@ -30,6 +38,10 @@
       display: inline-block;
       position: relative;
       color: $cart-color;
+
+      @media (max-width: 575.98px) {
+        margin-right: 1.5rem;
+      }
 
       .cartIcon {
         background-color: $primary;
