@@ -2,7 +2,7 @@
 
 .root {
     margin-bottom: 30px;
-      
+
     img {
         object-fit: cover;
         width: 100%;
@@ -30,4 +30,12 @@
     .paddingTop {
         padding-top: 15px;
     }
+}
+
+@media (max-width: 992px){
+  .root {
+    .noPadding {
+      padding-top: 30px;
+  }
+  }
 }
