@@ -37,6 +37,16 @@
   font-weight: 400;
 }
 
+.bigGreen {
+  @extend .main;
+  background-color: $button-bigGreen-bg;
+  color: $button-bigGreen-color;
+  padding: 20px 30px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+};
+
 .outline {
   @include outline($text-color, $button-border-color)
 }
