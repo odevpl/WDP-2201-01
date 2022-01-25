@@ -40,7 +40,11 @@
     }
 
     .login, .register {
+<<<<<<< HEAD
       @media (max-width: 576px) {
+=======
+      @media (max-width: 575.98px) {
+>>>>>>> Add RWD styles for TopBar component
         display: none;
       }
     }
