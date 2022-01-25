@@ -8,7 +8,7 @@
   }
 
   .elements :first-child {
-    @media (max-width: 575.98px) { order: 3; }
+    @media (max-width: 576px) { order: 3; }
   }
 
   .phoneNumber {
@@ -19,7 +19,7 @@
       color: $phoneNo-color;
       font-weight: 500;
 
-      @media (max-width: 575.98px) {
+      @media (max-width: 576px) {
         font-size: 14px;
       }
 
@@ -39,7 +39,7 @@
       position: relative;
       color: $cart-color;
 
-      @media (max-width: 575.98px) {
+      @media (max-width: 576px) {
         margin-right: 1.5rem;
       }
 
