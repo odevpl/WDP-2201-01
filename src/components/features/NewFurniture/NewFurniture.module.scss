@@ -33,10 +33,16 @@
 
     .menu {
       text-align: center;
+
       ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
+        @media (max-width: 768px) {
+          margin-top: 1rem;
+        }
+
         li {
           display: inline-block;
           margin: 0 0.5rem;
