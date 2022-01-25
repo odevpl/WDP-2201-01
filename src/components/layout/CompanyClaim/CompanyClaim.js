@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import styles from './CompanyClaim.module.scss';
 
@@ -33,7 +32,5 @@ const CompanyClaim = () => (
     </div>
   </div>
 );
-
-// CompanyClaim.propTypes = {};
 
 export default CompanyClaim;
