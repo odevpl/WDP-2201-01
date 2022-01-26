@@ -9,6 +9,17 @@ class Slider extends React.Component {
     firstThumbnailsNo: 0,
   };
 
+  handleThumbnailChange(event, thumbnailChange) {
+    event.preventDefault();
+    const newActiveThumbnail = this.state.activeThumbnail + thumbnailChange;
+    this.setState({
+      activeThumbnail:
+        newActiveThumbnail > -1 && newActiveThumbnail < this.state.lastThumbnailsNo
+          ? newActiveThumbnail
+          : this.state.activeThumbnail,
+    });
+  }
+
   render() {
     const { imagesURLs, thumbnailsInRow } = this.props;
     const { activeThumbnail, firstThumbnailsNo } = this.state;
@@ -21,7 +32,10 @@ class Slider extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className={styles.leftButton} />
+        <div
+          className={styles.leftButton}
+          onClick={event => this.handleThumbnailChange(event, -1)}
+        />
         <div className={styles.thumbnails}>
           {renderImagesURLs.map((imageURL, index) => (
             <div
@@ -36,7 +50,10 @@ class Slider extends React.Component {
             </div>
           ))}
         </div>
-        <div className={styles.rightButton} />
+        <div
+          className={styles.rightButton}
+          onClick={event => this.handleThumbnailChange(event, 1)}
+        />
       </div>
     );
   }
