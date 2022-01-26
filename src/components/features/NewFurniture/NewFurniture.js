@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import * as _ from 'lodash';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
@@ -9,11 +11,20 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    rwdMode: 'desktop',
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+    });
   }
+
+  handleChangeIndex = activePage => {
+    this.setState({
+      activePage,
+    });
+  };
 
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
@@ -21,10 +32,16 @@ class NewFurniture extends React.Component {
 
   render() {
     const { categories, products, assignFavourite, assignCompare } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, rwdMode } = this.state;
+
+    const productsPerPage = () =>
+      (rwdMode === 'desktop' && 8) ||
+      (rwdMode === 'tablet' && 6) ||
+      (rwdMode === 'mobile' && 1);
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const renderProductsArr = _.chunk(categoryProducts, productsPerPage());
+    const pagesCount = Math.ceil(categoryProducts.length / productsPerPage());
     const actions = { assignFavourite, assignCompare };
 
     const getCompareProductAmount = () =>
@@ -66,22 +83,34 @@ class NewFurniture extends React.Component {
                   ))}
                 </ul>
               </div>
-              <div className={'col-auto ' + styles.dots}>
+              <div
+                className={
+                  'col-auto ' + (rwdMode === 'mobile' ? styles.noDots : styles.dots)
+                }
+              >
                 <ul>{dots}</ul>
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
-                <ProductBox
-                  {...item}
-                  actions={actions}
-                  compareAmount={getCompareProductAmount()}
-                />
+          <SwipeableViews
+            index={activePage}
+            onChangeIndex={this.handleChangeIndex}
+            enableMouseEvents
+          >
+            {renderProductsArr.map((renderProducts, index) => (
+              <div key={`swipe-${index}`} className='row '>
+                {renderProducts.map(item => (
+                  <div key={item.id} className='col col-12 col-md-4 col-lg-3'>
+                    <ProductBox
+                      {...item}
+                      actions={actions}
+                      compareAmount={getCompareProductAmount()}
+                    />
+                  </div>
+                ))}
               </div>
             ))}
-          </div>
+          </SwipeableViews>
           <div className='row'>
             <CompareBar />
           </div>
