@@ -4,6 +4,7 @@ import initialState from './initialState';
 import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
+import deviceTypeReducer from './deviceRedux';
 
 import hotDealsReducer from './hotDealsRedux';
 import deviceTypeReducer from './deviceRedux';
