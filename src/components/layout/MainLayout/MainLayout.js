@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const MainLayout = ({ deviceFromContainer, children, changeDevice }) => {
-  const [device, setDevice] = useState(window.innerWidth);
-  const [currDevice, setCurrDevice] = useState('');
+const MainLayout = ({ deviceType, children, changeDevice }) => {
+  const [device] = useState(window.innerWidth);
 
   const checkDevice = () => {
     let deviceInCheckDevice = 'mobile';
@@ -17,28 +16,11 @@ const MainLayout = ({ deviceFromContainer, children, changeDevice }) => {
     return deviceInCheckDevice;
   };
 
-  let deviceForCurrentDevice = 'mobile';
-  if (device >= 1200) deviceForCurrentDevice = 'desktop';
-  if (device >= 992 && device < 1200) deviceForCurrentDevice = 'tablet';
-  if (device >= 768 && device < 992) deviceForCurrentDevice = 'mobile';
-
-  const checkSize = () => {
-    setDevice(window.innerWidth);
-  };
-
-  const checkSizeForCurrentDevice = () => {
-    setCurrDevice(deviceForCurrentDevice);
-  };
-
   useEffect(() => {
-    window.addEventListener('resize', checkSize);
-
-    checkSizeForCurrentDevice();
-    if (deviceFromContainer !== currDevice) {
-      changeDevice(checkDevice());
-      return () => {
-        window.removeEventListener('resize', checkSize);
-      };
+    window.addEventListener('resize', checkDevice);
+    const currentDevice = checkDevice();
+    if (deviceType !== currentDevice) {
+      changeDevice(currentDevice);
     }
   });
 
@@ -53,7 +35,7 @@ const MainLayout = ({ deviceFromContainer, children, changeDevice }) => {
 
 MainLayout.propTypes = {
   changeDevice: PropTypes.func,
-  deviceFromContainer: PropTypes.string,
+  deviceType: PropTypes.string,
   children: PropTypes.node,
 };
 
