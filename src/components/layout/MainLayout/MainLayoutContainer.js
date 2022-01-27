@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { changeDevice, getSize } from '../../../redux/deviceRedux';
 
 const mapStateToProps = state => ({
-  deviceFromContainer: getSize(state),
+  deviceType: getSize(state),
 });
 const mapDispatchToProps = dispatch => ({
   changeDevice: device => dispatch(changeDevice(device)),

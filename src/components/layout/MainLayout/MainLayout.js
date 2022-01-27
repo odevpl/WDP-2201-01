@@ -5,23 +5,26 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const MainLayout = ({ deviceType, children, changeDevice }) => {
+  let currentDevice = '';
+
   const checkDevice = () => {
     const device = window.innerWidth;
+
     if (device >= 1200) {
-      return 'desktop';
+      currentDevice = 'desktop';
     } else if (device >= 992 && device < 1200) {
-      return 'tablet';
+      currentDevice = 'tablet';
     } else {
-      return 'mobile';
+      currentDevice = 'mobile';
+    }
+
+    if (deviceType !== currentDevice) {
+      changeDevice(currentDevice);
     }
   };
 
   useEffect(() => {
     window.addEventListener('resize', checkDevice);
-    const currentDevice = checkDevice();
-    if (deviceType !== currentDevice) {
-      changeDevice(currentDevice);
-    }
   });
 
   return (
