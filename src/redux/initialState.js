@@ -390,6 +390,8 @@ const initialState = {
       id: 'logo1',
     },
   ],
+
+  deviceType: 'desktop',
 };
 
 export default initialState;
