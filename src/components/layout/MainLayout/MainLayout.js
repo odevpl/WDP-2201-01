@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const MainLayout = ({ deviceType, children, changeDevice }) => {
-  const [device] = useState(window.innerWidth);
-
   const checkDevice = () => {
-    let deviceInCheckDevice = 'mobile';
-    if (device >= 1200) deviceInCheckDevice = 'desktop';
-    if (device >= 992 && device < 1200) deviceInCheckDevice = 'tablet';
-    if (device >= 768 && device < 992) deviceInCheckDevice = 'mobile';
-
-    return deviceInCheckDevice;
+    const device = window.innerWidth;
+    if (device >= 1200) {
+      return 'desktop';
+    } else if (device >= 992 && device < 1200) {
+      return 'tablet';
+    } else {
+      return 'mobile';
+    }
   };
 
   useEffect(() => {
