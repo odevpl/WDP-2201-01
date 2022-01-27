@@ -377,7 +377,25 @@ const initialState = {
     textSecondWord: ' furniture',
     textSecondline: 'save up to 50% of all furniture',
     pictureLeft: 'src=../../images/hotDeals/armchair.jpg',
-    pictureRight: 'src=../../images/hotDeals/living.jpg',
+    activeBgImage: 1,
+    promoBgImages: [
+      {
+        id: 'hotDeals-living',
+        url: 'src=../../images/hotDeals/living.jpg',
+      },
+      {
+        id: 'hotDeals-office',
+        url: 'src=../../images/hotDeals/office.jpg',
+      },
+      {
+        id: 'hotDeals-kitchen',
+        url: 'src=../../images/hotDeals/kitchen.jpg',
+      },
+      {
+        id: 'hotDeals-bathroom',
+        url: 'src=../../images/hotDeals/bathroom.jpg',
+      },
+    ],
     products: [
       'aenean-ru-bristique-2',
       'aenean-ru-bristique-3',
