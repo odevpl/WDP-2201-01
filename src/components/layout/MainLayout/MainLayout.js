@@ -11,16 +11,16 @@ const MainLayout = ({ deviceFromContainer, children, changeDevice }) => {
   const checkDevice = () => {
     let deviceInCheckDevice = 'mobile';
     if (device >= 1200) deviceInCheckDevice = 'desktop';
-    if (device >= 992) deviceInCheckDevice = 'tablet';
-    if (device >= 768) deviceInCheckDevice = 'mobile';
+    if (device >= 992 && device < 1200) deviceInCheckDevice = 'tablet';
+    if (device >= 768 && device < 992) deviceInCheckDevice = 'mobile';
 
     return deviceInCheckDevice;
   };
 
   let deviceForCurrentDevice = 'mobile';
   if (device >= 1200) deviceForCurrentDevice = 'desktop';
-  if (device >= 992) deviceForCurrentDevice = 'tablet';
-  if (device >= 768) deviceForCurrentDevice = 'mobile';
+  if (device >= 992 && device < 1200) deviceForCurrentDevice = 'tablet';
+  if (device >= 768 && device < 992) deviceForCurrentDevice = 'mobile';
 
   const checkSize = () => {
     setDevice(window.innerWidth);
