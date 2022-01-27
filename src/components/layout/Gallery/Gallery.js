@@ -73,7 +73,7 @@ class Gallery extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className='col-6'>
+            <div className='col-12 col-lg-6'>
               <div className={styles.panelBar}>
                 <div className={styles.heading}>
                   <h3>Furniture Gallery</h3>
@@ -124,7 +124,7 @@ class Gallery extends React.Component {
                   alt={activeTab.replace('_', ' ') + ' furniture'}
                 />
               </div>
-              <Slider imagesURLs={productsImagesURLs} />
+              <Slider imagesURLs={productsImagesURLs} thumbnailsInRow={6} />
             </div>
             <div className={'col-6 ' + styles.rightPanel}>
               <div className={styles.items}>

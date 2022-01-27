@@ -7,17 +7,16 @@ class Slider extends React.Component {
   state = {
     activeThumbnail: 0,
     firstThumbnailsNo: 0,
-    lastThumbnailsNo: 6,
   };
 
   render() {
-    const { imagesURLs } = this.props;
-    const { activeThumbnail, firstThumbnailsNo, lastThumbnailsNo } = this.state;
+    const { imagesURLs, thumbnailsInRow } = this.props;
+    const { activeThumbnail, firstThumbnailsNo } = this.state;
 
     const renderImagesURLs = imagesURLs.filter(
       imageURL =>
         imagesURLs.indexOf(imageURL) >= firstThumbnailsNo &&
-        imagesURLs.indexOf(imageURL) < lastThumbnailsNo
+        imagesURLs.indexOf(imageURL) < thumbnailsInRow
     );
 
     return (
@@ -45,6 +44,7 @@ class Slider extends React.Component {
 
 Slider.propTypes = {
   imagesURLs: PropTypes.array,
+  thumbnailsInRow: PropTypes.number,
 };
 
 export default Slider;
