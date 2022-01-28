@@ -9,7 +9,7 @@ import Feedback from '../../layout/Feedback/FeedbackContainer';
 import Promotion from '../../layout/Promotion/Promotion';
 
 import HotDeals from '../../layout/HotDeals/HotDealsContainer';
-import Brands from '../../layout/Brands/Brands';
+import Brands from '../../layout/Brands/BrandsContainer';
 import Gallery from '../../layout/Gallery/GalleryContainer';
 
 const Homepage = () => (
@@ -19,8 +19,8 @@ const Homepage = () => (
     <Promotion />
     <NewFurniture />
     <Gallery />
-    <Feedback />
     <Brands />
+    <Feedback />
   </div>
 );
 

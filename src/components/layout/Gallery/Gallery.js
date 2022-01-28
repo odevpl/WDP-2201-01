@@ -124,7 +124,9 @@ class Gallery extends React.Component {
                   alt={activeTab.replace('_', ' ') + ' furniture'}
                 />
               </div>
-              <Slider imagesURLs={productsImagesURLs} />
+              <div className={styles.slider}>
+                <Slider imagesURLs={productsImagesURLs} />
+              </div>
             </div>
             <div className={'col-6 ' + styles.rightPanel}>
               <div className={styles.items}>
