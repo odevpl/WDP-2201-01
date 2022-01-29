@@ -1,38 +1,63 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Slider from '../../features/Slider/Slider';
+
 import styles from './Brands.module.scss';
 
-const Brands = () => (
-  <div className='container'>
-    <div className={styles.root}>
-      <div className='row justify-content'>
-        <div className={styles.button}>
-          <p>&#60;</p>
-        </div>
-        <div className={`row justify-content-around ${styles.brandsImagesContainer}`}>
-          <div className={`col-1 ${styles.logoContainer}`}>
-            <img src='/images/logo/logo1.jpg' alt='logo' />
+class Brands extends React.Component {
+  state = {
+    sliderSize: 0,
+  };
+
+  sliderContainer = React.createRef();
+
+  handleSliderSizeChange() {
+    if (this.state.sliderSize !== this.sliderContainer.offsetWidth) {
+      this.setState({ sliderSize: this.sliderContainer.offsetWidth });
+    }
+  }
+
+  componentDidUpdate() {
+    this.handleSliderSizeChange();
+  }
+
+  componentDidMount() {
+    this.handleSliderSizeChange();
+  }
+
+  render() {
+    const { brands } = this.props;
+    const { sliderSize } = this.state;
+    const brandLogoURLs = brands.map(brand => brand.imageURL);
+
+    window.addEventListener('resize', () => {
+      this.handleSliderSizeChange();
+    });
+
+    return (
+      <div className='container'>
+        <div className={styles.root}>
+          <div className='row'>
+            <div
+              ref={ref => (this.sliderContainer = ref)}
+              className={styles.sliderContainer}
+            >
+              <Slider
+                imagesURLs={brandLogoURLs}
+                imageWidth={140}
+                imageHeight={90}
+                thumbnailsInRow={Math.floor(sliderSize / (134 + 15))}
+              />
+            </div>
           </div>
-          <div className={`col-1 ${styles.logoContainer}`}>
-            <img src='/images/logo/logo1.jpg' alt='logo' />
-          </div>
-          <div className={`col-1 ${styles.logoContainer}`}>
-            <img src='/images/logo/logo1.jpg' alt='logo' />
-          </div>
-          <div className={`col-1 ${styles.logoContainer}`}>
-            <img src='/images/logo/logo1.jpg' alt='logo' />
-          </div>
-          <div className={`col-1 ${styles.logoContainer}`}>
-            <img src='/images/logo/logo1.jpg' alt='logo' />
-          </div>
-          <div className={`col-1 ${styles.logoContainer}`}>
-            <img src='/images/logo/logo1.jpg' alt='logo' />
-          </div>
-        </div>
-        <div className={styles.button}>
-          <p>&#62;</p>
         </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
+
+Brands.propTypes = {
+  brands: PropTypes.array,
+};
+
 export default Brands;

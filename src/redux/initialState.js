@@ -403,9 +403,62 @@ const initialState = {
     ],
   },
 
-  logo: [
+  brands: [
     {
-      id: 'logo1',
+      id: 'brand-1',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-2',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-3',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-4',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-5',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-6',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-7',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-8',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-9',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-10',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-11',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-12',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-13',
+      imageURL: '../../images/brands/brand-1.png',
+    },
+    {
+      id: 'brand-14',
+      imageURL: '../../images/brands/brand-1.png',
     },
   ],
 

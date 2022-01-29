@@ -40,6 +40,8 @@ MainLayout.propTypes = {
   changeDevice: PropTypes.func,
   deviceType: PropTypes.string,
   children: PropTypes.node,
+  deviceType: PropTypes.string,
+  changeDevice: PropTypes.func,
 };
 
 export default MainLayout;

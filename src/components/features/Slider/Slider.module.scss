@@ -2,12 +2,16 @@
 
 .root {
   display: flex;
-  border: 1px solid $slider-border-color;
   padding: 9px;
+
+  & > * {
+    width: 100%;
+  }
 
   .leftButton {
     position: relative;
     width: 33px;
+    flex-shrink: 0;
     background-color: $slider-button-bg;
 
     &:hover {
@@ -43,13 +47,6 @@
     .sliderImage {
       position: relative;
 
-      img {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        z-index: 1;
-      }
-
       &::after {
         position: absolute;
         width: 100%;
@@ -61,6 +58,11 @@
         background-color: $slider-thumbnail-bg;
         opacity: 0.5;
         z-index: 2
+      }
+
+      &:hover::after {
+        cursor: pointer;
+        opacity: 0;
       }
     }
 

@@ -39,6 +39,10 @@
       font-size: 18px;
       font-weight: 600;
 
+      @media (max-width: 576px) {
+        font-size: 12px;
+      }
+
       &:hover {
         color: $gallery-active-color;
         text-decoration: none;
@@ -159,8 +163,16 @@
     }
   }
 
+  .slider {
+    border: 1px solid $slider-border-color;
+  }
+
   .rightPanel {
     position: relative;
+
+    @media (max-width: 992px) {
+      display: none;
+    }
 
     .mainImage {
       width: 100%;
