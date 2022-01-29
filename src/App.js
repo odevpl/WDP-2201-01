@@ -17,7 +17,7 @@ import MoneyBack from './components/views/MoneyBack/MoneyBack';
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
-      <MainLayoutContainer>
+      <MainLayout>
         <Switch>
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
@@ -26,7 +26,7 @@ const App = () => (
           <Route exact path={'/MoneyBack'} component={MoneyBack} />
           <Route exact path={'/MemberDiscount'} component={MemberDiscount} />
         </Switch>
-      </MainLayoutContainer>
+      </MainLayout>
     </BrowserRouter>
   </Provider>
 );

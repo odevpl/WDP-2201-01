@@ -4,19 +4,57 @@ import Slider from '../../features/Slider/Slider';
 
 import styles from './Brands.module.scss';
 
-const Brands = ({ brands }) => {
-  const brandLogoURLs = brands.map(brand => brand.imageURL);
+class Brands extends React.Component {
+  state = {
+    sliderSize: 0,
+  };
 
-  return (
-    <div className='container'>
-      <div className={styles.root}>
-        <div className='row justify-content'>
-          <Slider imagesURLs={brandLogoURLs} />
+  sliderContainer = React.createRef();
+
+  handleSliderSizeChange() {
+    if (this.state.sliderSize !== this.sliderContainer.offsetWidth) {
+      this.setState({ sliderSize: this.sliderContainer.offsetWidth });
+    }
+  }
+
+  componentDidUpdate() {
+    this.handleSliderSizeChange();
+  }
+
+  componentDidMount() {
+    this.handleSliderSizeChange();
+  }
+
+  render() {
+    const { brands } = this.props;
+    const { sliderSize } = this.state;
+    const brandLogoURLs = brands.map(brand => brand.imageURL);
+
+    window.addEventListener('resize', () => {
+      this.handleSliderSizeChange();
+    });
+
+    return (
+      <div className='container'>
+        <div className={styles.root}>
+          <div className='row'>
+            <div
+              ref={ref => (this.sliderContainer = ref)}
+              className={styles.sliderContainer}
+            >
+              <Slider
+                imagesURLs={brandLogoURLs}
+                imageWidth={140}
+                imageHeight={90}
+                thumbnailsInRow={Math.floor(sliderSize / (134 + 15))}
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Brands.propTypes = {
   brands: PropTypes.array,

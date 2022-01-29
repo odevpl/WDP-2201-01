@@ -30,13 +30,19 @@ class Slider extends React.Component {
   }
 
   render() {
-    const { imagesURLs, thumbnailsInRow } = this.props;
+    const { imagesURLs, thumbnailsInRow, imageWidth, imageHeight } = this.props;
     const { activeThumbnail, activeThumbnailArr } = this.state;
 
     const renderImagesArr = _.chunk(
       imagesURLs,
       thumbnailsInRow !== 0 ? thumbnailsInRow : 1
     );
+
+    const thumbnailSize = {
+      width: `${imageWidth}px`,
+      height: `${imageHeight}px`,
+      objectFit: 'cover',
+    };
 
     return (
       <div className={styles.root}>
@@ -61,7 +67,11 @@ class Slider extends React.Component {
                     this.handleActiveThumbChange(event, imagesURLs.indexOf(imageURL))
                   }
                 >
-                  <img src={imageURL} alt={`Thumbnail-${index}}`} />
+                  <img
+                    style={thumbnailSize}
+                    src={imageURL}
+                    alt={`Thumbnail-${index}}`}
+                  />
                 </div>
               ))}
             </div>
@@ -81,6 +91,8 @@ class Slider extends React.Component {
 Slider.propTypes = {
   imagesURLs: PropTypes.array,
   thumbnailsInRow: PropTypes.number,
+  imageWidth: PropTypes.number,
+  imageHeight: PropTypes.number,
 };
 
 export default Slider;

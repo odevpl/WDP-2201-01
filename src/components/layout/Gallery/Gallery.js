@@ -141,10 +141,14 @@ class Gallery extends React.Component {
                   alt={activeTab.replace('_', ' ') + ' furniture'}
                 />
               </div>
-              <Slider
-                imagesURLs={productsImagesURLs}
-                thumbnailsInRow={Math.floor(leftColumnSize / (70 + 15))}
-              />
+              <div className={styles.slider}>
+                <Slider
+                  imagesURLs={productsImagesURLs}
+                  imageWidth={70}
+                  imageHeight={70}
+                  thumbnailsInRow={Math.floor(leftColumnSize / (70 + 15))}
+                />
+              </div>
             </div>
             <div className={'col-6 ' + styles.rightPanel}>
               <div className={styles.items}>
