@@ -8,7 +8,7 @@ import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
 import Promotion from '../../layout/Promotion/Promotion';
 
-import HotDeals from '../../layout/HotDeals/HotDeals';
+import HotDeals from '../../layout/HotDeals/HotDealsContainer';
 import Brands from '../../layout/Brands/Brands';
 import Gallery from '../../layout/Gallery/GalleryContainer';
 
@@ -21,7 +21,6 @@ const Homepage = () => (
     <Gallery />
     <Feedback />
     <Brands />
-
   </div>
 );
 

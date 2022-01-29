@@ -3,15 +3,21 @@
 .root {
     margin-top: 80px;
 
+    .hotDealContainer {
+      @media (max-width: 992px){
+        display: none;
+      }
+    }
+
     .sectionsContainer {
         height: 500px;
         display: flex;
     }
 
-    img {
+    .promoBgImage {
         object-fit: cover;
         width: 100%;
-        height: 100%;
+        height: 460px;
         z-index: -1;
     }
 

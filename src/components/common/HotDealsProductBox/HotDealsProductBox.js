@@ -15,7 +15,7 @@ import initialState from '../../../redux/initialState';
 
 const HotDealsProductBox = ({ id, actions, compareAmount }) => {
   const renderedProduct = initialState.products.filter(product => id === product.id)[0];
-  console.log(renderedProduct);
+
   const changeFavouriteState = event => {
     event.preventDefault();
     actions.assignFavourite({ id: id, favourite: !renderedProduct.favourite });
