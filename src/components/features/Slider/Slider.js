@@ -1,59 +1,77 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import * as _ from 'lodash';
 
 import styles from './Slider.module.scss';
 
 class Slider extends React.Component {
   state = {
     activeThumbnail: 0,
-    firstThumbnailsNo: 0,
-    lastThumbnailsNo: 6,
+    activeThumbnailArr: 0,
   };
 
-  handleThumbnailChange(event, thumbnailChange) {
+  handleThumbnailsArrNo(event, value, lastNo) {
     event.preventDefault();
-    const newActiveThumbnail = this.state.activeThumbnail + thumbnailChange;
+    const newThumbnailsArrNo = this.state.activeThumbnailArr + value;
     this.setState({
-      activeThumbnail:
-        newActiveThumbnail > -1 && newActiveThumbnail < this.state.lastThumbnailsNo
-          ? newActiveThumbnail
-          : this.state.activeThumbnail,
+      activeThumbnailArr:
+        newThumbnailsArrNo > -1 && newThumbnailsArrNo < lastNo
+          ? newThumbnailsArrNo
+          : this.state.activeThumbnailArr,
+    });
+  }
+
+  handleActiveThumbChange(event, activeThumbnail) {
+    event.preventDefault();
+    this.setState({
+      activeThumbnail,
     });
   }
 
   render() {
-    const { imagesURLs } = this.props;
-    const { activeThumbnail, firstThumbnailsNo, lastThumbnailsNo } = this.state;
+    const { imagesURLs, thumbnailsInRow } = this.props;
+    const { activeThumbnail, activeThumbnailArr } = this.state;
 
-    const renderImagesURLs = imagesURLs.filter(
-      imageURL =>
-        imagesURLs.indexOf(imageURL) >= firstThumbnailsNo &&
-        imagesURLs.indexOf(imageURL) < lastThumbnailsNo
+    const renderImagesArr = _.chunk(
+      imagesURLs,
+      thumbnailsInRow !== 0 ? thumbnailsInRow : 1
     );
 
     return (
       <div className={styles.root}>
         <div
           className={styles.leftButton}
-          onClick={event => this.handleThumbnailChange(event, -1)}
+          onClick={event =>
+            this.handleThumbnailsArrNo(event, -1, renderImagesArr.length)
+          }
         />
-        <div className={styles.thumbnails}>
-          {renderImagesURLs.map((imageURL, index) => (
-            <div
-              key={`thumbnail-${index}`}
-              className={
-                index === activeThumbnail
-                  ? styles.sliderImageActive
-                  : styles.sliderImage
-              }
-            >
-              <img src={imageURL} alt={`Thumbnail-${index}}`} />
+        <SwipeableViews index={activeThumbnailArr} enableMouseEvents>
+          {renderImagesArr.map((renderImages, index) => (
+            <div key={`gallery-slider-${index}`} className={styles.thumbnails}>
+              {renderImages.map((imageURL, index) => (
+                <div
+                  key={`thumbnail-${index}`}
+                  className={
+                    imagesURLs.indexOf(imageURL) === activeThumbnail
+                      ? styles.sliderImageActive
+                      : styles.sliderImage
+                  }
+                  onClick={event =>
+                    this.handleActiveThumbChange(event, imagesURLs.indexOf(imageURL))
+                  }
+                >
+                  <img src={imageURL} alt={`Thumbnail-${index}}`} />
+                </div>
+              ))}
             </div>
           ))}
-        </div>
+        </SwipeableViews>
         <div
           className={styles.rightButton}
-          onClick={event => this.handleThumbnailChange(event, 1)}
+          onClick={event =>
+            this.handleThumbnailsArrNo(event, 1, renderImagesArr.length)
+          }
         />
       </div>
     );
@@ -62,6 +80,7 @@ class Slider extends React.Component {
 
 Slider.propTypes = {
   imagesURLs: PropTypes.array,
+  thumbnailsInRow: PropTypes.number,
 };
 
 export default Slider;

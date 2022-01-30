@@ -15,11 +15,8 @@ import {
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 class Gallery extends React.Component {
-  static propTypes = {
-    products: PropTypes.array,
-  };
-
   state = {
+    leftColumnSize: 0,
     activeTab: 'feature',
     activeTabImage: {
       feature: this.props.products[0].image,
@@ -29,14 +26,30 @@ class Gallery extends React.Component {
     },
   };
 
+  leftColRef = React.createRef();
+
+  handleColumnSizeChange() {
+    if (this.state.leftColumnSize !== this.leftColRef.offsetWidth) {
+      this.setState({ leftColumnSize: this.leftColRef.offsetWidth });
+    }
+  }
+
   handleTabChange(event, newTab) {
     event.preventDefault();
     this.setState({ activeTab: newTab });
   }
 
+  componentDidUpdate() {
+    this.handleColumnSizeChange();
+  }
+
+  componentDidMount() {
+    this.handleColumnSizeChange();
+  }
+
   render() {
     const { products } = this.props;
-    const { activeTab, activeTabImage } = this.state;
+    const { leftColumnSize, activeTab, activeTabImage } = this.state;
 
     const productsImagesURLs = products.map(product => product.image);
 
@@ -69,11 +82,15 @@ class Gallery extends React.Component {
     const mainImageAlt = selectedProduct.name;
     const mainPrice = currencyFormatter.format(selectedProduct.price);
 
+    window.addEventListener('resize', () => {
+      this.handleColumnSizeChange();
+    });
+
     return (
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className='col-6'>
+            <div className='col-12 col-lg-6'>
               <div className={styles.panelBar}>
                 <div className={styles.heading}>
                   <h3>Furniture Gallery</h3>
@@ -100,7 +117,7 @@ class Gallery extends React.Component {
                   ))}
                 </ul>
               </div>
-              <div className={styles.tabContent}>
+              <div ref={ref => (this.leftColRef = ref)} className={styles.tabContent}>
                 <div className={styles.buttons}>
                   {tabButtons.map(button => (
                     <div key={button.id} className={styles.buttonContainer}>
@@ -124,7 +141,10 @@ class Gallery extends React.Component {
                   alt={activeTab.replace('_', ' ') + ' furniture'}
                 />
               </div>
-              <Slider imagesURLs={productsImagesURLs} />
+              <Slider
+                imagesURLs={productsImagesURLs}
+                thumbnailsInRow={Math.floor(leftColumnSize / (70 + 15))}
+              />
             </div>
             <div className={'col-6 ' + styles.rightPanel}>
               <div className={styles.items}>
@@ -147,5 +167,9 @@ class Gallery extends React.Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  products: PropTypes.array,
+};
 
 export default Gallery;
